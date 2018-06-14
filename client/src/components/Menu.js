@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Dishes from './Dishes';
 
 class Menu extends React.Component {
   state = { menu: {} }
@@ -10,10 +11,10 @@ class Menu extends React.Component {
   }
 
   render() {
-    const { menu: { name }} = this.state;
     return (
       <div>
-        <h1>{name} Menu</h1>
+        <h1>Dishes</h1>
+        <Dishes id={this.props.match.params.id} />
       </div>
     )
   }

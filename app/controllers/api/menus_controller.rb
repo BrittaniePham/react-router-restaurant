@@ -6,7 +6,7 @@ class Api::MenusController < ApplicationController
   end
 
   def show
-    render json: @menu
+    render json: @menu.dishes
   end
 
   def create

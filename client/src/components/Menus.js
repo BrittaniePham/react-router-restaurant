@@ -1,6 +1,5 @@
 import React from 'react';
-import { Redirect, Link } from 'react-router-dom';
-import { isAuthenticated } from '../fakeAuth';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Menus extends React.Component {
@@ -13,21 +12,17 @@ class Menus extends React.Component {
 
   render() {
     const { menus } = this.state;
-    if (isAuthenticated()) {
-      return (
-        <ul>
+    return(
+      <ul>
         <h2>MENUS</h2>
-          { menus.map( m =>
-              <li key={m.id}>
-                <Link to={`/menus/${m.id}`}>{m.name}</Link>
-              </li>
-            )
-          }
-        </ul>
-      )
-    } else {
-      return <Redirect to="/login" />
-    }
+        { menus.map( m =>
+            <li key={m.id}>
+              <Link to={`/menus/${m.id}`}>{m.name}</Link>
+            </li>
+          )
+        }
+      </ul>
+    )
   }
 }
 
